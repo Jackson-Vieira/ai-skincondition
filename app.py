@@ -50,7 +50,7 @@ if uploaded_file is not None and api_key and analyze_button:
         base64_image = encode_image(uploaded_file)
     
         # Optimized prompt for additional clarity and detail
-        prompt_text = (
+        prompt_text_jackson = (
             'Quero que você atue como um especialista profissional e eficiente em identificação de vitiligo e seus tipos.'
             'O vitiligo é uma doença de pele que se caracteriza pela perda da coloração da pele, chamada de hipopigmentação.'
             'Preciso de ajuda para identificar o vitiligo e seus tipos.'
@@ -58,6 +58,29 @@ if uploaded_file is not None and api_key and analyze_button:
             'Você precisará me fornecer informacoes especiais do vitiligo indentificado no paciente. como por exemplo onde ele esta localizado, e o tipo'
             'Caso nao consiga identificar informacoes especiais da imagem retorne um "Nao sei"."'
         )
+        
+        prompt_text = """
+            API Prompt: Skin Condition Analysis for Vitiligo Detection
+
+            Purpose: To analyze submitted images for the presence of vitiligo.
+
+            Input: An image, preferably a close-up of the skin area in question.
+
+            Processing Instructions:
+            1. Analyze the image for skin patterns and coloration.
+            2. Specifically, look for irregular white patches that are characteristic of vitiligo.
+            3. Compare observed patterns with known vitiligo characteristics.
+            4. The analysis is binary: the AI should only determine if the image shows signs of vitiligo or not.
+
+            Output:
+            - Return "Vitiligo" if the skin condition matches vitiligo characteristics.
+            - Return "No Conditions Found" if no signs of vitiligo are detected.
+            - The AI should not provide any medical advice or diagnoses beyond this binary output.
+
+            Note: This analysis is limited to identifying the presence or absence of vitiligo. It does not include the diagnosis of any other skin conditions or medical advice. For medical concerns, a consultation with a healthcare professional is advised.
+            """
+
+
     
         if show_details and additional_details:
             prompt_text += (
