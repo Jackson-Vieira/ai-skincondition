@@ -59,7 +59,7 @@ if uploaded_file is not None and api_key and analyze_button:
             'Caso nao consiga identificar informacoes especiais da imagem retorne um "Nao sei"."'
         )
         
-        prompt_text = """
+        prompt_text_1 = """
             API Prompt: Skin Condition Analysis for Vitiligo Detection
 
             Purpose: To analyze submitted images for the presence of vitiligo.
@@ -79,6 +79,27 @@ if uploaded_file is not None and api_key and analyze_button:
 
             Note: This analysis is limited to identifying the presence or absence of vitiligo. It does not include the diagnosis of any other skin conditions or medical advice. For medical concerns, a consultation with a healthcare professional is advised.
             """
+            
+        prompt_text = """
+            API Prompt: Skin Condition Analysis for Vitiligo Detection with Specific Body Part Identification
+
+            Purpose: To analyze submitted images for the presence of vitiligo and identify the body part shown.
+
+            Input: An image, preferably a clear close-up of the skin area in question, showing a part of the body.
+
+            Processing Instructions:
+            1. Analyze the image for skin patterns and coloration, focusing on detecting vitiligo.
+            2. Identify the part of the body shown in the image as either truncal, lower extremities, or upper extremities.
+            3. Do not provide any descriptions, explanations, or medical advice.
+
+            Output:
+            - If vitiligo is detected, return the output in the format "Vitiligo, [Body Part]" (e.g., "Vitiligo, Lower Extremities").
+            - If no vitiligo is detected, return the output in the format "No Conditions Found, [Body Part]" (e.g., "No Conditions Found, Truncal").
+            - If the body part cannot be determined, return "Vitiligo, No Results" or "No Conditions Found, No Results" accordingly.
+
+            Note: This AI analysis is strictly limited to the detection of vitiligo and identification of the body part in the image. It does not include any other diagnosis or medical advice. For any health concerns, consultation with a healthcare professional is recommended.
+            """
+
 
 
     
