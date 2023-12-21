@@ -11,9 +11,9 @@ load_dotenv()
 def encode_image(image_file):
     return base64.b64encode(image_file.getvalue()).decode("utf-8")
 
-st.set_page_config(page_title="Scientific Image Analyst", layout="centered", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="AI Skincondition", layout="centered", initial_sidebar_state="collapsed")
 # Streamlit page setup
-st.title("Image Analyst: `GPT-4 Turbo Vision`")
+st.title("Image Analyst: ``Vitiligo Presence and Body Part Identification``")
 
 # Retrieve the OpenAI API Key from secrets
 api_key = os.getenv("OPENAI_API_KEY")
